@@ -46,10 +46,10 @@ app.use(session({
     maxAge: 24 * 60 * 60 * 1000 // 24 hours
   }
 }));
-app.use(express.static('public'));
 
-// Serve frontend files from root
-app.use(express.static('.'));
+// Serve static files from root directory
+app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, '/')));
 
 /**
  * Normalize text for matching: lowercase and remove punctuation
