@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Teleprompter</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>🎙️ Teleprompter</h2>
+                <p class="admin-badge">Admin Panel</p>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="/" class="nav-item">
+                    <span class="icon">🎙️</span>
+                    <span>Teleprompter</span>
+                </a>
+                <a href="#scripts" class="nav-item active" data-section="scripts">
+                    <span class="icon">📝</span>
+                    <span>Scripts</span>
+                </a>
+                <a href="#activity" class="nav-item" data-section="activity">
+                    <span class="icon">📊</span>
+                    <span>Activity Logs</span>
+                </a>
+                <a href="#settings" class="nav-item" data-section="settings">
+                    <span class="icon">⚙️</span>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <p id="adminEmail">Loading...</p>
+                </div>
+                <button id="logoutBtn" class="btn-logout">
+                    <span>🚪</span> Logout
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <h1 id="pageTitle">Scripts Management</h1>
+                <button id="newScriptBtn" class="btn-primary">
+                    + New Script
+                </button>
+            </header>
+
+            <!-- Scripts Section -->
+            <section id="scriptsSection" class="content-section active">
+                <div id="scriptsList" class="scripts-grid">
+                    <!-- Scripts will be loaded here -->
+                </div>
+
+                <!-- Empty State -->
+                <div id="emptyState" class="empty-state" style="display: none;">
+                    <div class="empty-icon">📄</div>
+                    <h3>No scripts yet</h3>
+                    <p>Create your first script to get started</p>
+                    <button class="btn-primary" onclick="showScriptModal()">Create Script</button>
+                </div>
+            </section>
+
+            <!-- Activity Section -->
+            <section id="activitySection" class="content-section">
+                <div id="activityList" class="activity-list">
+                    <!-- Activity logs will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section id="settingsSection" class="content-section">
+                <div class="settings-card">
+                    <h3>Application Settings</h3>
+                    <div class="setting-item">
+                        <label>OpenAI API Key</label>
+                        <p class="setting-description">Configured in .env file</p>
+                        <input type="password" value="••••••••••••••••" disabled>
+                    </div>
+                    <div class="setting-item">
+                        <label>Server Port</label>
+                        <p class="setting-description">Current port: 3000</p>
+                    </div>
+                    <div class="setting-item">
+                        <label>Session Timeout</label>
+                        <p class="setting-description">24 hours</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Script Modal -->
+    <div id="scriptModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">New Script</h2>
+                <button class="close-btn" onclick="closeScriptModal()">&times;</button>
+            </div>
+            <form id="scriptForm">
+                <div class="form-group">
+                    <label for="scriptTitle">Title</label>
+                    <input type="text" id="scriptTitle" required placeholder="Enter script title">
+                </div>
+                <div class="form-group">
+                    <label for="scriptContent">Content</label>
+                    <textarea id="scriptContent" rows="10" required placeholder="Enter your script here..."></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-secondary" onclick="closeScriptModal()">Cancel</button>
+                    <button type="submit" class="btn-primary" id="saveScriptBtn">Save Script</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voice-Synced Teleprompter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <h1>🎙️ Voice-Synced Teleprompter</h1>
+      <div class="header-right">
+        <div class="status-indicator" id="statusIndicator">
+          <span class="status-dot"></span>
+          <span class="status-text">IDLE</span>
+        </div>
+        <button id="logoutBtn" class="btn-logout-header">Logout</button>
+      </div>
+    </header>
+
+    <!-- Off-script warning banner -->
+    <div class="warning-banner" id="warningBanner">
+      ⚠️ You are off-script. Return to the text to continue.
+    </div>
+
+    <!-- Script Input Section -->
+    <section class="input-section" id="inputSection">
+      <h2>Enter Your Script</h2>
+      <textarea id="scriptInput"
+        placeholder="Paste or type your script here...&#10;&#10;Example:&#10;Welcome to our presentation. Today we will discuss the future of technology and how it impacts our daily lives. We believe that innovation drives progress and creates opportunities for everyone."
+        rows="10"></textarea>
+      <button id="loadScriptBtn" class="btn btn-primary">Load Script</button>
+    </section>
+
+    <!-- Teleprompter Display Section -->
+    <section class="teleprompter-section" id="teleprompterSection" style="display: none;">
+      <div class="controls">
+        <button id="startBtn" class="btn btn-success">▶ Start</button>
+        <button id="stopBtn" class="btn btn-danger" disabled>⏹ Stop</button>
+        <button id="resetBtn" class="btn btn-secondary">↻ Reset</button>
+        <button id="editScriptBtn" class="btn btn-secondary">✏️ Edit Script</button>
+      </div>
+
+      <div class="script-display" id="scriptDisplay">
+        <!-- Tokenized script will be inserted here -->
+      </div>
+
+      <div class="info-panel">
+        <div class="info-item">
+          <span class="info-label">Progress:</span>
+          <span id="progressText">0 / 0 words</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Last heard:</span>
+          <span id="lastTranscript">—</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>Click any word to jump to that position • Speak clearly and at a steady pace</p>
+      <p style="margin-top: 0.5rem;"><a href="/admin.html"
+          style="color: var(--primary-color); text-decoration: none;">📊 Admin Panel</a></p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>

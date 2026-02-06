@@ -1,0 +1,19 @@
+[
+  {
+    "id": "1770371771878",
+    "timestamp": "2026-02-06T09:56:11.878Z",
+    "action": "Admin login",
+    "details": {
+      "email": "iokadirergen@gmail.com"
+    }
+  },
+  {
+    "id": "1770371822283",
+    "timestamp": "2026-02-06T09:57:02.283Z",
+    "action": "Script created",
+    "details": {
+      "title": "deneme",
+      "id": "1770371822282"
+    }
+  }
+]
