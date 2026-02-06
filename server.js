@@ -408,7 +408,13 @@ if (!fs.existsSync('uploads')) {
   fs.mkdirSync('uploads');
 }
 
-app.listen(PORT, () => {
-  console.log(`🎙️  Teleprompter server running on http://localhost:${PORT}`);
-  console.log(`📝 Make sure to set OPENAI_API_KEY in .env file`);
-});
+// For local development
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`🎙️  Teleprompter server running on http://localhost:${PORT}`);
+    console.log(`📝 Make sure to set OPENAI_API_KEY in .env file`);
+  });
+}
+
+// Export for Vercel
+module.exports = app;
